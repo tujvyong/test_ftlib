@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -euo pipefail
+
+function main() {
+  cflags="-Wall -Wextra -Werror"
+
+  while test "$1" != ""; do
+    case $1 in
+    -nm) cflags="" ;;
+    *) break ;;
+    esac
+    shift
+  done
+
+  filename=${1%.*}
+
+  gcc "$cflags" -L. "$filename".c -lft_test && ./a.out
+}
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  main "$@"
+fi

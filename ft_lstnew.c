@@ -1,19 +1,24 @@
 #include <stdio.h>
-#include "../libft.h"
+#include "libfttest.h"
 
 void test_function(char *content, char *expect)
 {
 	t_list	*el;
 
+	printf(COLOR_INFO"---ft_lstnew test---\n"COLOR_CLEAR);
 	el = ft_lstnew(content);
 	if (strcmp(el->content, expect))
 	{
-		printf("Failed\n");
-		printf("[Your response]\n content: %s\n", el->content);
-		printf("[expect response]\n content: %s\n", expect);
+		printf("%s\n", expect);
+		printf(COLOR_YOURS"%s\n"COLOR_CLEAR, el->content);
+		printf(COLOR_FAILED"\nFailed\n\n"COLOR_CLEAR);
 	}
 	else
-		printf("Success! %s\n", el->content);
+	{
+		printf("%s\n", expect);
+		printf(COLOR_YOURS"%s\n"COLOR_CLEAR, el->content);
+		printf(COLOR_SUCCESS"\nSuccess!\n\n"COLOR_CLEAR);
+	}
 
 }
 

@@ -6,7 +6,7 @@
 /*   By: ydoi <ydoi@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/05 16:54:08 by ydoi              #+#    #+#             */
-/*   Updated: 2020/07/05 18:22:02 by ydoi             ###   ########.fr       */
+/*   Updated: 2020/07/05 18:50:52 by ydoi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 
 # define	COLOR_SUCCESS	"\033[38;5;46m"
 # define	COLOR_FAILED	"\033[38;5;160m"
+# define	COLOR_INFO		"\033[0;91m"
+# define	COLOR_YOURS		"\033[4;34m"
+# define	COLOR_CLEAR		"\033[0m"
 
 typedef struct		s_list
 {
