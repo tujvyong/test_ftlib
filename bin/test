@@ -7,7 +7,8 @@ function main() {
 
   while test "$1" != ""; do
     case $1 in
-    -nm) cflags="" ;;
+    -n) cflags="" ;;
+    -l) cflags="" leaks="&" ;;
     *) break ;;
     esac
     shift
@@ -15,7 +16,7 @@ function main() {
 
   filename=${1%.*}
 
-  gcc "$cflags" -L. "$filename".c -lft_test && ./a.out
+  gcc "$cflags" -L. "$filename".c -lft_test && ./a.out "$leaks"
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then

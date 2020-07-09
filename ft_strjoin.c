@@ -1,18 +1,29 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../libft.h"
+#include "libfttest.h"
 
+
+void test_function(char *dest, char *src, char *expected)
+{
+	char *res = ft_strjoin(dest, src);
+	printf("%s\n", expected);
+	printf(COLOR_YOURS"%s\n"COLOR_CLEAR, res);
+	if (strcmp(res, expected))
+	{
+		printf(COLOR_FAILED"\nFailed\n\n"COLOR_CLEAR);
+		exit(1);
+	}
+	free(res);
+	printf(COLOR_SUCCESS"\nSuccess!\n\n"COLOR_CLEAR);
+}
 
 int main()
 {
-	// char str1[] = "0123456789";
-	// char str2[] = "abcdefg";
-	char str1[] = "";
-	char str2[] = "";
+	printf(COLOR_INFO"---ft_strjoin test---\n"COLOR_CLEAR);
 
-	char *p = ft_strjoin(str1, str2);
-	printf("%s\n",p);
+	test_function("0123", "asdf", "0123asdf");
+	test_function("", "", "");
 
 	return (0);
 }
